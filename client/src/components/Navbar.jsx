@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Layers, BookOpen, Sparkles, LogOut, User, FlaskConical, Plus } from 'lucide-react';
+import { Layers, BookOpen, Sparkles, LogOut, User, FlaskConical, Plus, Terminal } from 'lucide-react';
 
 const Navbar = () => {
   const { user, isAuthenticated, logout, demoLogin } = useAuth();
@@ -18,7 +18,7 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80 px-4 lg:px-8 py-3 transition-colors">
+    <nav className="sticky top-0 z-40 bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80 px-4 lg:px-8 py-3 transition-colors">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Brand Logo */}
         <Link to={isAuthenticated ? '/dashboard' : '/'} className="flex items-center gap-2.5 group">
@@ -64,6 +64,18 @@ const Navbar = () => {
             </Link>
 
             <Link
+              to="/demo"
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
+                isActive('/demo')
+                  ? 'bg-purple-600/20 text-purple-300 border border-purple-500/30'
+                  : 'text-slate-300 hover:text-purple-300 hover:bg-slate-900'
+              }`}
+            >
+              <Terminal className="w-4 h-4 text-purple-400" />
+              <span>Reaction Lab</span>
+            </Link>
+
+            <Link
               to="/workspaces/new"
               className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium bg-indigo-600 hover:bg-indigo-500 text-white shadow-md shadow-indigo-600/20 transition-all hover:scale-[1.02]"
             >
@@ -94,6 +106,14 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="flex items-center gap-2 sm:gap-3">
+            <Link
+              to="/demo"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-purple-400 bg-purple-500/10 border border-purple-500/25 hover:bg-purple-500/20 transition-all"
+            >
+              <Terminal className="w-3.5 h-3.5 text-purple-400" />
+              <span className="hidden sm:inline">Reaction Lab</span>
+            </Link>
+
             <button
               onClick={handleDemo}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 transition-all shadow-sm shadow-emerald-500/10"
@@ -123,4 +143,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

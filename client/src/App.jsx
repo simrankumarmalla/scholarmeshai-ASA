@@ -11,6 +11,7 @@ import DashboardPage from './pages/DashboardPage';
 import CreateWorkspacePage from './pages/CreateWorkspacePage';
 import WorkspaceDetailPage from './pages/WorkspaceDetailPage';
 import SavedSynthesesPage from './pages/SavedSynthesesPage';
+import Demo from './components/ui/demo';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Routes>
               {/* Public Routes */}
               <Route path="/" element={<LandingPage />} />
+              <Route path="/demo" element={<Demo />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
 
@@ -70,4 +72,3 @@ function App() {
 }
 
 export default App;
-

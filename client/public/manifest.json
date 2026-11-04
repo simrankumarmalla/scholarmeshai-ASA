@@ -1,0 +1,19 @@
+{
+  "short_name": "ScholarMesh",
+  "name": "ScholarMesh AI — Research Synthesis Platform",
+  "description": "Multi-Source Literature Synthesis & Evidence Discovery Engine",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#030712",
+  "theme_color": "#6366f1",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/"
+}
